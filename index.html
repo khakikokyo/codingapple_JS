@@ -17,12 +17,21 @@
 
   <div class="alert-box">
     <p class="title">알림창입니다.</p>
-    <button onclick="openClose('none')">닫기</button>
+    <button class="close">닫기</button>
   </div>
   <button onclick="openClose('block', '아이디를 입력하세요.')">버튼1</button>
   <button onclick="openClose('block', '비밀번호를 입력하세요.')">버튼2</button>
 
   <script>
+
+    // addEventListener('', function() {});
+    // click: 마우스로 클릭했을 때,
+    // mouseover: 마우스를 올렸을 때,
+
+    // 콜백함수: 파라미터 자리에 들어가는 함수
+    document.querySelector('.close').addEventListener('click', function() {
+      document.querySelector('.alert-box').style.display = 'none';
+    });
 
     function openClose(a, b) {
       document.querySelector('.alert-box').style.display = a;
