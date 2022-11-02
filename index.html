@@ -10,6 +10,13 @@
 </head>
 <body>
 
+  <div class="black-bg">
+    <div class="white-bg">
+      <h4>로그인 하세요.</h4>
+      <button class="btn btn-danger" id="close">닫기</button>
+    </div>
+  </div>
+
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
       <span class="navbar-brand">Navbar</span>
@@ -27,9 +34,19 @@
     <li class="list-group-item">And a fifth one</li>
   </ul>
 
+  <button class="login">로그인</button>
+
   <script>
     document.querySelector('.navbar-toggler').addEventListener('click', function() {
       document.querySelector('.list-group').classList.toggle('show');
+    })
+
+    document.querySelector('.login').addEventListener('click', function () {
+      document.querySelector('.black-bg').classList.add('show-modal');
+    })
+
+    document.querySelector('#close').addEventListener('click', function () {
+      document.querySelector('.black-bg').classList.remove('show-modal');
     })
   </script>
 
