@@ -16,9 +16,25 @@
   -->
 
   <div class="alert-box">알림창입니다.
-    <button onclick="document.querySelector('.alert-box').style.display = 'none'">닫기</button>
+    <button onclick="closeAlert()">닫기</button>
   </div>
-  <button onclick="document.querySelector('.alert-box').style.display = 'block'">버튼</button>
+  <button onclick="openAlert()">버튼</button>
+
+  <script>
+
+    // 함수: function () {}
+    // 긴 코드 재사용 용이
+    function openAlert() {
+      document.querySelector('.alert-box').style.display = 'block'
+    }
+    openAlert();
+
+    function closeAlert() {
+      document.querySelector('.alert-box').style.display = 'none'
+    }
+    closeAlert();
+
+  </script>
 
 </body>
 </html>
