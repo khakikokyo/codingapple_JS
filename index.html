@@ -16,21 +16,23 @@
   -->
 
   <div class="alert-box">알림창입니다.
-    <button onclick="closeAlert()">닫기</button>
+    <button onclick="openClose('none')">닫기</button>
   </div>
-  <button onclick="openAlert()">버튼</button>
+  <button onclick="openClose('block')">버튼</button>
 
   <script>
 
-    // 함수: function () {}
-    // 긴 코드 재사용 용이
-    function openAlert() {
-      document.querySelector('.alert-box').style.display = 'block'
+    // a: 파라미터, 인자
+    function openClose(a) {
+      document.querySelector('.alert-box').style.display = a;
     }
 
-    function closeAlert() {
-      document.querySelector('.alert-box').style.display = 'none'
+    // function 문법 예제
+    function plus(b, c) {
+      console.log(b + c)
     }
+    plus(2, 3);
+    plus(5, 5);
 
   </script>
 
