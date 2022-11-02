@@ -5,10 +5,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="./main.css" />
 </head>
 <body>
   
-  
+  <!-- 
+  UI 만드는 step
+  1. HTML/CSS로 미리 디자인(필요하면 미리 숨김)
+  2. 필요할 때 보여달라고 코드짬(자바스크립트로)
+  -->
+
+  <div class="alert-box">알림창입니다.
+    <button onclick="document.querySelector('.alert-box').style.display = 'none'">닫기</button>
+  </div>
+  <button onclick="document.querySelector('.alert-box').style.display = 'block'">버튼</button>
 
 </body>
 </html>
