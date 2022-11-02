@@ -12,7 +12,9 @@
   background-color: rgba(0,0,0,.5);
   z-index: 5;
   padding: 30px;
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .5s;
 }
 .white-bg {
   background-color: #fff;
@@ -20,5 +22,6 @@
   padding: 30px;
 }
 .show-modal {
-  display: block;
+  visibility: visible;
+  opacity: 1;
 }
