@@ -57,12 +57,33 @@
 
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
-      <span class="navbar-brand">Navbar</span>
+      <span class="navbar-brand">JSShop</span>
+      <span class="badge bg-dark">Dark 🌙</span>
       <button class="navbar-toggler" type="button">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
   </nav>
+
+  <script>
+    // 다크모드
+    // 변수
+    // 1. 길고 복잡한 자료들 저장 가능
+    // 2. 특정 값을 기억하고 만들고 싶을 때,
+
+    // 변수의 선언(변수 만들기), 할당(변수에 자료넣기), 범위
+    // var, let(재선언 불가), const(재선언/재할당 불가)
+    let count = 0;
+    let badgeEl = document.querySelector('.badge');
+    badgeEl.addEventListener('click', function () {
+      count++;
+      if(count % 2 == 1) {
+        badgeEl.innerHTML = 'Light ☀️';
+      } else {
+        badgeEl.innerHTML = 'Dart 🌙';
+      }
+    });
+  </script>
 
   <ul class="list-group">
     <li class="list-group-item">An item</li>
