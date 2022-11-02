@@ -11,6 +11,15 @@
 .show {
   display: block;
 }
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+}
+.navbar-brand {
+  font-size: 30px;
+  transition: all .5s;
+}
 
 /* login 모달창 */
 .black-bg {
