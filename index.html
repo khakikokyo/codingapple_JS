@@ -32,9 +32,18 @@
     // 조건문: 특정 조건이 충족될 때 코드를 실행하고 싶으면 사용
     // if (조건) {조건이 참일 때 실행할 코드}
     // else {위 조건이 참이 아닐 때 실행할 코드}
-    document.querySelector('form').addEventListener('submit', function () {
+    document.querySelector('form').addEventListener('submit', function (e) {
       if(document.querySelector('#email').value == '') {
+        e.preventDefault();
         alert('아이디를 입력하세요.');
+      }
+      if(document.querySelector('#pwd').value == '') {
+        e.preventDefault();
+        alert('비밀번호를 입력하세요.');
+      }
+      if(document.querySelector('#pwd').value.length < 6) {
+        e.preventDefault();
+        alert('비밀번호는 6자 이상이어야 합니다.');
       }
     });
   </script>
