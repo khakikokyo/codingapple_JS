@@ -29,10 +29,6 @@
   </div>
 
   <script>
-    if (1 == 2) {
-      console.log('안녕');
-    }
-
     document.querySelector('form').addEventListener('submit', function (e) {
       let emailEl = document.querySelector('#email').value;
       let pwdEl = document.querySelector('#pwd').value;
@@ -54,6 +50,19 @@
       }
       if(/[A-Z]/.test(pwdEl) == false) {
         alert('대문자가 없습니다.');
+      }
+    });
+
+    // 로그인창 닫는 기능 (외부 배경 클릭시), 이벤트 버블링
+    // e.target: 유저가 실제로 클린한 것
+    // e.currentTarget: 이벤트리스너 달린 곳 (this;)
+    // e.preventDefault(): 이벤트 기본동작을 막아줌, 클릭 안한 것 처럼 동작 요청
+    // e.stoppropagetion(): 내 상위요소로 이벤트 버블링 중단 요청
+    const blackBg = document.querySelector('.black-bg');
+
+    blackBg.addEventListener('click', function (e) {
+      if(e.target == blackBg) {
+        blackBg.classList.remove('show-modal');
       }
     });
   </script>
