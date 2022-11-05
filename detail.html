@@ -11,6 +11,24 @@
 </head>
 <body>
 
+  <div class="container mt-3">
+    <div class="card p-3">
+      <span class="product">상품명</span>
+      <span class="price">가격</span>
+    </div>
+  </div>
+
+  <script>
+    // array
+    let car = ['소나타', 50000, 'white'];
+    let car2 = {name: '소나타', price: 50000}
+    const productEl = document.querySelector('.product');
+    const priceEl = document.querySelector('.price');
+    
+    productEl.innerHTML = car2.name;
+    priceEl.innerHTML = car[1];
+  </script>
+
   <div class="container mt-5">
     <ul class="list">
       <!--
