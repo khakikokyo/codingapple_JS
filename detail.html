@@ -18,21 +18,40 @@
     </div>
   </div>
 
-  <script>
-    // 개발방식 1. server-side rendering, 완성된 html 파일 (서버가 귀찮음)
-    // 개발방식 2. client-side rendering, 빈 html 파일 + 데이터 (서버가 편함)
-    // 데이터바인딩: html에 데이터 삽입
 
+  <div class="container my-5 form-group">
+    <p>상품선택</p>
+    <select class="form-select mt-2">
+      <option class="product">모자</option>
+      <option class="product">셔츠</option>
+    </select>
+    <select class="form-select mt-2 form-hide">
+      <option class="product-size">95</option>
+      <option class="product-size">100</option>
+      <option class="product-size">105</option>
+      <option class="product-size">110</option>
+    </select>
+  </div>
+
+  <script>
+    // 데이터바인딩
     let car2 = { name: '소나타', price: [50000, 3000, 4000] }
     document.querySelector('.price').innerHTML = car2.price[1];
+
+    // select
+    const formSelect = document.querySelectorAll('.form-select');
+
+    formSelect[0].addEventListener('input', function () {
+      let formValue = formSelect[0].value;
+      if(formValue == '셔츠') {
+        formSelect[1].classList.remove('form-hide');
+      }
+    })
+
   </script>
 
   <div class="container mt-5">
     <ul class="list">
-      <!--
-      숨김자료: data-작명="값"
-      숨긴자료 출력: document.querySelector('.tab-button').dataset.id
-      -->
       <li class="tab-button" data-id="0">Products</li>
       <li class="tab-button orange" data-id="1">Information</li>
       <li class="tab-button" data-id="2">Shipping</li>
