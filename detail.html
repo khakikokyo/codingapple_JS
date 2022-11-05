@@ -19,14 +19,12 @@
   </div>
 
   <script>
-    // array
-    let car = ['소나타', 50000, 'white'];
-    let car2 = {name: '소나타', price: 50000}
-    const productEl = document.querySelector('.product');
-    const priceEl = document.querySelector('.price');
-    
-    productEl.innerHTML = car2.name;
-    priceEl.innerHTML = car[1];
+    // 개발방식 1. server-side rendering, 완성된 html 파일 (서버가 귀찮음)
+    // 개발방식 2. client-side rendering, 빈 html 파일 + 데이터 (서버가 편함)
+    // 데이터바인딩: html에 데이터 삽입
+
+    let car2 = { name: '소나타', price: [50000, 3000, 4000] }
+    document.querySelector('.price').innerHTML = car2.price[1];
   </script>
 
   <div class="container mt-5">
