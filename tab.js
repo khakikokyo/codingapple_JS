@@ -17,9 +17,9 @@ const listEl = document.querySelector('.list');
 // });
 
 // 숨김자료를 이융
-listEl.addEventListener('click', function (e) {
-  openTab(e.target.dataset.id);
-});
+// listEl.addEventListener('click', function (e) {
+//   openTab(e.target.dataset.id);
+// });
 
 // 함수 축약 시 변수 > 파라미터
 function openTab(e) {
