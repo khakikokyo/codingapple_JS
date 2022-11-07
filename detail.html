@@ -22,31 +22,51 @@
   <div class="container my-5 form-group">
     <p>상품선택</p>
     <select class="form-select mt-2">
-      <option class="product">모자</option>
-      <option class="product">셔츠</option>
+      <option>모자</option>
+      <option>셔츠</option>
+      <option>바지</option>
     </select>
-    <select class="form-select mt-2 form-hide">
-      <option class="product-size">95</option>
-      <option class="product-size">100</option>
-      <option class="product-size">105</option>
-      <option class="product-size">110</option>
-    </select>
+    <select class="form-select mt-2 form-hide"></select>
   </div>
 
+  <div id="test"></div>
+
   <script>
+    // 자바스크립트로 html 생성하기
+    // insertAdjacentHTML(a, b): 문자형 HTML 넣어주는 함수, a: 'beforeend': 안쪽 맨 밑(추가할 위치)
+    // let template = '<p>안녕</p>';
+    // document.querySelector('#test').insertAdjacentHTML('beforeend', template);
+    // document.querySelector('#test').innerHTML = template;
+
     // 데이터바인딩
     let car2 = { name: '소나타', price: [50000, 3000, 4000] }
     document.querySelector('.price').innerHTML = car2.price[1];
 
     // select
     const formSelect = document.querySelectorAll('.form-select');
+    const cap = ['S', 'M', 'L'];
+    const shirts = [90, 95, 100, 105];
+    const pants = [28, 30, 32, 34, 36, 38, 40];
 
     formSelect[0].addEventListener('input', function () {
       let formValue = formSelect[0].value;
-      if(formValue == '셔츠') {
+      if(formValue == '모자') {
+        formSelect[1].classList.remove('form.hide');
+        cap.forEach(function (item) {
+          formSelect[1].insertAdjacentHTML('beforeend', `<option>${item}</option>`);
+        });
+      } else if(formValue == '셔츠') {
         formSelect[1].classList.remove('form-hide');
+        shirts.forEach(function (item) {
+          formSelect[1].insertAdjacentHTML('beforeend', `<option>${item}</option>`);
+        });
+      } else if (formValue == '바지') {
+        formSelect[1].classList.remove('form-hide');
+        pants.forEach(function (item) {
+          formSelect[1].insertAdjacentHTML('beforeend', `<option>${item}</option>`);
+        });
       }
-    })
+    });
 
   </script>
 
