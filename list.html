@@ -109,6 +109,17 @@
     // 상품목록
     const rowEl = document.querySelector('.row');
 
+    // 장바구니 - 구매 버튼 클릭시 localStorage에 상품명 저장
+    // 1. localStorage, sessionStorage: 이름:값 형태로 저장 가능(key-value)
+    //    5MB 용량, 문자/숫자만 저장가능
+    //    localStorage-사이트 재접속해도 유지, sessionStorage-사이트 나가면 자동삭제
+    // 2. IndexDB: 구조화된 대용량 데이터 저장
+    // 3. Cookies: 보통 로그인 정보(유저의 인증 정보)
+    // 4. Cache Storage: html, css, js 파일 저장
+    localStorage.setItem('이름', 'kim'); // 저장
+    localStorage.getItem('이름'); // 출력
+    localStorage.removeItem('이름'); // 삭제
+
     // forEach()
     products.forEach(products => {
       let template =
@@ -116,6 +127,7 @@
           <img src="https://via.placeholder.com/600" class="w-100">
           <h5>${products.title}</h5>
           <p>가격 : ${products.price}</p>
+          <button class="buy">구매</button>
         </div>`;
       rowEl.insertAdjacentHTML('beforeend', template);
     })
