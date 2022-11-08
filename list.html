@@ -19,6 +19,8 @@
   <div class="container">
     <button class="btn btn-danger" id="more">더보기</button>
     <button class="btn btn-danger" id="p-sort">가격순정렬</button>
+    <button class="btn btn-danger" id="six-less">6만원이하</button>
+    <button class="btn btn-danger" id="product-reverse">다나가순정렬</button>
   </div>
     
   <script>
@@ -42,6 +44,7 @@
       })
     });
 
+    // 가격순정렬 - 오름차순
     pSortEl.addEventListener('click', function () {
       products.sort(function (a, b) {
         return a.price - b.price;
@@ -58,21 +61,43 @@
       })
     })
 
-    // // array - filter() : 원본 변형X
-    // let arrayEl = [7,3,5,2,40];
+    // 6만원이하 - 상품만 보기
+    const sixLess = document.querySelector('#six-less');
+    sixLess.addEventListener('click', function () {
+      let newProduct = products.filter(function (a) {
+        return a.price <= 60000;
+      });
+      rowEl.innerHTML = '';
+      newProduct.forEach(products => {
+        let template =
+          `<div class="col-sm-4">
+            <img src="https://via.placeholder.com/600" class="w-100">
+            <h5>${products.title}</h5>
+            <p>가격 : ${products.price}</p>
+          </div>`;
+        rowEl.insertAdjacentHTML('beforeend', template);
+      });
+    })
 
-    // let array2 = arrayEl.filter(function (a) {
-    //   return a < 4;
-    // });
-    // console.log(array2);
-
-    // array - map()
-    let arrayEl = [7,3,5,2,40];
-
-    let array2 = arrayEl.map(function (a) {
-      return a * 4;
-    });
-    console.log(array2);
+    // 상품명 정렬 - 다나가순
+    const productReverse = document.querySelector('#product-reverse');
+    productReverse.addEventListener('click', function () {
+      products.sort(function (a, b) {
+        if(a.title < b.title) return 1;
+        if(a.title > b.title) return -1;
+        if(a.title === b.title) return 0;
+      });
+      rowEl.innerHTML = '';
+      products.forEach(products => {
+        let template =
+          `<div class="col-sm-4">
+            <img src="https://via.placeholder.com/600" class="w-100">
+            <h5>${products.title}</h5>
+            <p>가격 : ${products.price}</p>
+          </div>`;
+        rowEl.insertAdjacentHTML('beforeend', template);
+      });
+    })
 
     // 데이터 바인딩
     var products = [
