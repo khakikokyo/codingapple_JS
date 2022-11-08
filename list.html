@@ -18,12 +18,14 @@
 
   <div class="container">
     <button class="btn btn-danger" id="more">더보기</button>
+    <button class="btn btn-danger" id="p-sort">가격순정렬</button>
   </div>
     
   <script>
     // 더보기
     // GET 요청
     const moreEl = document.querySelector('#more');
+    const pSortEl = document.querySelector('#p-sort');
     moreEl.addEventListener('click', function () {
       fetch('https://codingapple1.github.io/js/more1.json')
       .then(res => res.json())
@@ -36,9 +38,25 @@
               <p>가격 : ${data.price}</p>
             </div>`;
           rowEl.insertAdjacentHTML('beforeend', template);
-        });
-      });
+        })
+      })
     });
+
+    pSortEl.addEventListener('click', function () {
+      products.sort(function (a, b) {
+        return a.price - b.price;
+      });
+      rowEl.innerHTML = '';
+      products.forEach(products => {
+        let template =
+          `<div class="col-sm-4">
+            <img src="https://via.placeholder.com/600" class="w-100">
+            <h5>${products.title}</h5>
+            <p>가격 : ${products.price}</p>
+          </div>`;
+        rowEl.insertAdjacentHTML('beforeend', template);
+      })
+    })
 
     // 데이터 바인딩
     var products = [
@@ -46,31 +64,6 @@
       { id : 1, price : 50000, title : 'Springfield Shirt' },
       { id : 2, price : 60000, title : 'Black Monastery' }
     ];
-
-    // array
-    let arrayEl = [7,3,5,2,40];
-    let arrayEl2 = ['a', 'b', 'c'];
-
-    // // 1. 숫자 정렬 - 오름차순
-    // arrayEl.sort(function(a, b) {
-    //   return a - b;
-    // });
-
-    // // 2. 숫자 정렬 - 내림차순
-    // arrayEl.sort(function(a, b) {
-    //   return b - a;
-    // });
-
-    // 3. 문자정렬 - 오름차순
-    // arrayEl2.sort();
-
-    // 4. 문자정렬 - 내림차순
-    arrayEl2.sort(function(a,b) {
-      if(a < b) return 1;
-      if(a > b) return -1;
-      if(a === b) return 0;
-    });
-    console.log(arrayEl2);
 
     // 상품목록
     const rowEl = document.querySelector('.row');
