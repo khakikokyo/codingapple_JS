@@ -52,16 +52,19 @@
       let formValue = formSelect[0].value;
       if(formValue == '모자') {
         formSelect[1].classList.remove('form.hide');
+        formSelect[1].innerHTML = '';
         cap.forEach(function (item) {
           formSelect[1].insertAdjacentHTML('beforeend', `<option>${item}</option>`);
         });
       } else if(formValue == '셔츠') {
         formSelect[1].classList.remove('form-hide');
+        formSelect[1].innerHTML = '';
         shirts.forEach(function (item) {
           formSelect[1].insertAdjacentHTML('beforeend', `<option>${item}</option>`);
         });
       } else if (formValue == '바지') {
         formSelect[1].classList.remove('form-hide');
+        formSelect[1].innerHTML = '';
         pants.forEach(function (item) {
           formSelect[1].insertAdjacentHTML('beforeend', `<option>${item}</option>`);
         });
