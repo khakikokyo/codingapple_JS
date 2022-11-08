@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ㅏㅐ">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div class="cart">장바구니 페이지</div>
+
+  <script>
+    const cartEl = document.querySelector('.cart');
+    const localCart = JSON.parse(localStorage.cart);
+    console.log(localCart);
+
+    localCart.forEach(function (a) {
+      let addItems = `<p> ${a} </p>`;
+      cartEl.insertAdjacentHTML('beforeend', addItems);
+    })
+  </script>
+
+</body>
+</html>
