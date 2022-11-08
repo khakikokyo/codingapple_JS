@@ -58,6 +58,22 @@
       })
     })
 
+    // // array - filter() : 원본 변형X
+    // let arrayEl = [7,3,5,2,40];
+
+    // let array2 = arrayEl.filter(function (a) {
+    //   return a < 4;
+    // });
+    // console.log(array2);
+
+    // array - map()
+    let arrayEl = [7,3,5,2,40];
+
+    let array2 = arrayEl.map(function (a) {
+      return a * 4;
+    });
+    console.log(array2);
+
     // 데이터 바인딩
     var products = [
       { id : 0, price : 70000, title : 'Blossom Dress' },
