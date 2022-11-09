@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <div class="card-background">
+    <div class="card-box">
+      <img src="./img/card1.png" alt="card1" />
+    </div>
+    <div class="card-box">
+      <img src="./img/card2.png" alt="card2" />
+    </div>
+    <div class="card-box">
+      <img src="./img/card3.png" alt="card3" />
+    </div>
+  </div>
+
+  <script>
+    const cardBox = document.querySelectorAll('.card-box');
+
+    window.addEventListener('scroll', function () {
+      let heightEl = window.scrollY;
+      console.log(heightEl);
+
+      let y = (-1/500) * heightEl + 115/50;
+      cardBox[0].style.opacity = y;
+    });
+  </script>
+</body>
+</html>
