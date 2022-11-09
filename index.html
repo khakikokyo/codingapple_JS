@@ -171,7 +171,7 @@
   <div style="overflow: hidden">
     <div class="slide-container">
       <div class="slide-box">
-        <img src="./img/car1.png" alt="car1" />
+        <img src="./img/car1.png" alt="car1" draggable="false" />
       </div>
       <div class="slide-box">
         <img src="./img/car2.png" alt="car2" />
@@ -181,6 +181,37 @@
       </div>
     </div>
   </div>
+
+  <script>
+    // 1. mousedown: 마우스로 눌렀을 때 발생하는 이벤트
+    // 2. mouseup: 마우스를 뗄 때 발생하는 이벤트
+    // 3. mousemove: 마우스를 움직일 때 발생하는 이벤트
+    // - e.clientX: 현재 마우스의 X좌표를 알려줌
+    const slideBox = document.querySelectorAll('.slide-box');
+
+    let startClient = 0;
+    let clickEvn = false;
+    slideBox[0].addEventListener('mousedown', function(e) {
+      startClient = e.clientX;
+      clickEvn = true;
+    });
+
+    slideBox[0].addEventListener('mousemove', function(e) {
+      if(clickEvn == true) {
+        slideContainer.style.transform = `translateX(${e.clientX - startClient}px)`
+      }
+    });
+
+    slideBox[0].addEventListener('mouseup', function(e) {
+      clickEvn = false;
+
+      if(e.clientX - startClient < -100) {
+        slideContainer.style.transform = 'translateX(-100vw';
+      } else {
+        slideContainer.style.transform = 'none';
+      }
+    });
+  </script>
 
   <button class="before">이전</button>
   <button class="slide-1">1</button>
